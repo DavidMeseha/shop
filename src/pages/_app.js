@@ -1,5 +1,5 @@
 import { FilterStateProvider } from '@/context/filterProvider'
-import { UserProvider } from '@/context/userProvider'
+import { UserProvider } from '@/context/UserProvider'
 import NavBar from '@/layouts/NavBar'
 import '@/styles/globals.scss'
 
