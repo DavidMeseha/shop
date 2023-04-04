@@ -1,0 +1,36 @@
+@import './__variables';
+
+.container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 180px;
+}
+
+.split {
+    height: 1px;
+    background-color: $primary-background;
+    width: 90%;
+}
+
+.menu {
+    font-weight: 600;
+    width: 100%;
+
+    li {
+        padding: 10px 15px;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $primary-background;
+        }
+    }
+}
+
+.signout {
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    color: $gray-level2;
+    cursor: pointer;
+}

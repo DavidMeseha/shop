@@ -1,0 +1,30 @@
+@import './__variables';
+
+.containerGrid {
+    display: grid;
+    grid-template-columns: repeat(5, calc((100%/5) - 16px));
+    gap: 20px;
+
+    @media screen and (max-width:1200px) {
+        grid-template-columns: repeat(4, calc((100%/4) - 15px));
+    }
+
+    @media screen and (max-width:769px) {
+        grid-template-columns: repeat(3, calc((100%/3) - 14px));
+    }
+
+    @media screen and (max-width:551px) {
+        grid-template-columns: repeat(2, calc((100%/2) - 10px));
+    }
+
+    @media screen and (max-width:426px) {
+        grid-template-columns: repeat(2, calc((100%/2) - 5px));
+        gap: 10px;
+    }
+}
+
+.containerList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

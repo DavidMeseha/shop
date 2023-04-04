@@ -1,0 +1,107 @@
+@import './__variables';
+
+.img {
+    position: relative;
+    margin: 5px;
+    overflow: hidden;
+    border-radius: 3px;
+    aspect-ratio: 1;
+}
+
+.favorite {
+    position: absolute;
+    background-color: white;
+    border-radius: 99px;
+    top: 5px;
+
+    .icon {
+        width: 20px;
+        height: 20px;
+        padding: 5px;
+        fill: $gray-level2;
+    }
+}
+
+.data {
+    .title {
+        height: 40px;
+        text-overflow: clip;
+        overflow: hidden;
+        margin-bottom: 15px;
+    }
+
+    h3 span {
+        color: $gray-level2;
+    }
+}
+
+.containerGrid {
+    background-color: $secondry-background;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .data {
+        text-align: center;
+    }
+
+    .favorite {
+        right: 5px;
+    }
+
+    .text {
+        padding: 15px 10px;
+    }
+}
+
+.containerList {
+    background-color: $secondry-background;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+
+    .img {
+        width: 15%;
+
+        @media screen and (max-width:769px) {
+            width: 20%;
+        }
+    }
+
+    .data {
+        width: 85%;
+        padding: 20px 10px 10px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-between;
+
+        @media screen and (max-width:769px) {
+            width: 80%;
+        }
+    }
+
+    .title {
+        height: unset;
+        font-size: 1rem;
+
+    }
+
+    .text {
+        width: 100%;
+    }
+
+    button {
+        width: 150px;
+        border-radius: 5px;
+        padding: 10px;
+        float: right;
+
+        @media screen and (max-width:769px) {
+            width: 120px;
+        }
+    }
+
+    .favorite {
+        left: 5px;
+    }
+}

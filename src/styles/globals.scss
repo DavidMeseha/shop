@@ -1,0 +1,173 @@
+@import './__variables';
+
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    background-color: $gray-level1;
+}
+
+nav {
+    padding: 15px 15px;
+    background: $secondry-background;
+}
+
+img {
+    object-fit: contain;
+    -o-object-fit: contain;
+}
+
+input {
+    width: 100%;
+    border: 0;
+    border-radius: 999px;
+    background: $primary-background;
+    padding: 7px 40px 7px 10px;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+    margin: 0;
+}
+
+h1 {
+    font-size: $header1-font;
+}
+
+h2 {
+    font-size: $header2-font;
+}
+
+h3 {
+    font-size: $header3-font;
+}
+
+p,
+label {
+    font-size: $document-font;
+    margin: 0;
+}
+
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: $document-font;
+}
+
+image {
+    width: 100%;
+}
+
+.button,
+button {
+    border: 0;
+    background-color: $primary-color;
+    text-align: center;
+    width: 100%;
+    padding: 15px;
+    font-size: $header3-font;
+    font-weight: 600;
+    color: white;
+    user-select: none;
+    cursor: pointer;
+}
+
+.arrow-down {
+    height: 0;
+    width: 0;
+    border-bottom: transparent solid 5px;
+    border-top: $gray-level2 solid 5px;
+    border-left: transparent solid 5px;
+    border-right: transparent solid 5px;
+}
+
+.arrow-right {
+    height: 0;
+    width: 0;
+    border-bottom: transparent solid 5px;
+    border-top: transparent solid 5px;
+    border-left: $gray-level2 solid 5px;
+    border-right: transparent solid 5px;
+}
+
+.checkbox {
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer;
+
+    input {
+        position: absolute;
+        width: 0;
+        height: 0;
+        opacity: 0;
+    }
+
+    span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 10px;
+        height: 10px;
+        background-color: $gray-level1;
+        border: 1px solid transparent;
+        border-radius: 2px;
+    }
+
+    span:after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 3px;
+        top: 1px;
+        width: 2px;
+        height: 5px;
+        border: solid white;
+        border-width: 0px 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    input[type=checkbox]:checked+span {
+        background-color: $primary-color;
+
+        &:after {
+            display: block;
+        }
+    }
+
+    input[type=checkbox]:hover+span {
+        border: 1px solid $primary-color;
+    }
+}
+
+.vertical-split {
+    width: 1px;
+    height: inherit;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: $secondry-background;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $gray-level2;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: $primary-color;
+}

@@ -1,0 +1,116 @@
+@import './__variables';
+
+.search {
+    display: none;
+    align-items: center;
+    padding: 0px 0 15px 0;
+    width: 93%;
+}
+
+.topsection {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 0px 15px 0px;
+}
+
+.claer {
+    color: $primary-color;
+}
+
+.view {
+    background: white;
+
+    .icon {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        padding: 5px;
+        fill: $gray-level1;
+        cursor: pointer;
+        transition: fill 0.2s;
+
+        &:hover {
+            fill: $primary-color;
+        }
+    }
+
+    .selected {
+        fill: $primary-color;
+    }
+}
+
+.split {
+    display: inline-block;
+    background: $gray-level2;
+    width: 1px;
+    margin: 0px 5px;
+    height: 23px;
+}
+
+@media screen and (max-width:769px) {
+    .search {
+        display: flex;
+    }
+}
+
+/*...........One List style...........*/
+.asset {
+    border-bottom: 2px solid $primary-color;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px 10px 5px;
+    cursor: pointer;
+
+    h2 {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 220px;
+
+        span {
+            font-weight: 400;
+        }
+    }
+}
+
+.checkboxes {
+    padding: 0 0 0 15px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+
+    label {
+        padding: 0 0 10px 20px;
+        display: block;
+    }
+}
+
+.inputs {
+    display: flex;
+    align-items: center;
+    padding: 1px 1px 15px 1px;
+    gap: 10px;
+
+    input {
+        padding: 10px;
+        width: 55px;
+        text-align: center;
+    }
+
+    h2 {
+        color: $gray-level2;
+    }
+
+    button {
+        border-radius: 999px;
+        padding: 6px;
+        width: 35px;
+        height: 35px;
+    }
+}

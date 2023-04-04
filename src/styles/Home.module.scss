@@ -1,0 +1,31 @@
+@import './__variables';
+
+.main {
+    display: flex;
+    height: calc(100vh - 56px);
+}
+
+.filters {
+    min-width: 250px;
+    padding: 15px 20px 0px 20px;
+    background-color: $secondry-background;
+    overflow-y: scroll;
+
+    @media screen and (max-width:1025px) {
+        position: absolute;
+        z-index: 5;
+        box-shadow: -1px 7px 6px 0px;
+        height: -webkit-fill-available;
+        transition: transform 0.3s;
+    }
+}
+
+.products {
+    padding: 20px;
+    flex-grow: 1;
+    overflow-y: scroll;
+
+    @media screen and (max-width:426px) {
+        padding: 10px;
+    }
+}

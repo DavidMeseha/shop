@@ -1,0 +1,115 @@
+@import './__variables';
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.filter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-basis: 280px;
+
+    .icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.mainNav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    gap: 25px;
+    justify-content: flex-end;
+}
+
+.user-menu {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 120px;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.profile {
+    width: 30px;
+    height: 30px;
+    background: $primary-background;
+    border-radius: 999px;
+}
+
+.user h3 {
+    float: right;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.menu {
+    z-index: 1;
+    top: 45px;
+    right: 0;
+    position: absolute;
+    background: $secondry-background;
+    overflow: hidden;
+    transition: all 0.3s;
+
+    @media screen and (max-width:769px) {
+        top: 35px;
+    }
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+@media screen and (max-width:769px) {
+    .search {
+        display: none;
+    }
+
+    .user-menu {
+        justify-content: flex-end;
+
+        .profile {
+            display: none;
+        }
+    }
+
+    .user {
+        display: block;
+    }
+
+    .mainNav {
+        .content {
+            width: calc(100vw/3);
+        }
+
+        .logo {
+            display: flex;
+            width: calc(100vw/3);
+            justify-content: center;
+        }
+    }
+
+    .filter {
+        width: calc(100vw/3);
+
+        .title {
+            display: none;
+        }
+    }
+}
