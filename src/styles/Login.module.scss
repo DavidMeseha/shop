@@ -1,0 +1,62 @@
+@import './__variables';
+
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: $secondry-background;
+}
+
+.container {
+    border-radius: 5px;
+    width: 520px;
+    overflow: hidden;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 1040px;
+    transition: left 0.4s;
+}
+
+.regester,
+.signin {
+    display: flex;
+    width: 500px;
+    padding: 20px;
+    flex-direction: column;
+    gap: 30px;
+
+    input {
+        padding: 10px 15px 10px 15px;
+        width: unset;
+    }
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.navigate {
+    display: flex;
+    color: $primary-color;
+    font-size: 0.7rem;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

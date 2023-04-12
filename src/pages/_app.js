@@ -1,15 +1,15 @@
 import { FilterStateProvider } from '@/context/filterProvider'
-import { UserProvider } from '@/context/UserProvider'
+import { SessionProvider } from 'next-auth/react'
 import NavBar from '@/layouts/NavBar'
 import '@/styles/globals.scss'
 
-export default function App({ Component, pageProps }) {
+export default function App({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <UserProvider>
+    <SessionProvider session={session}>
       <FilterStateProvider>
         <nav><NavBar /></nav>
         <Component {...pageProps} />
       </FilterStateProvider>
-    </UserProvider>
+    </SessionProvider>
   )
 }

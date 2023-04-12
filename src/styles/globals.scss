@@ -28,6 +28,10 @@ input {
     border-radius: 999px;
     background: $primary-background;
     padding: 7px 40px 7px 10px;
+
+    &:focus{
+        outline: 2px solid gray;
+    }
 }
 
 h1,
@@ -153,21 +157,51 @@ button {
     height: inherit;
 }
 
-::-webkit-scrollbar {
+
+.message-position {
+    position: fixed;
+    width: 100%;
+    top: 40px;
+    opacity: 1;
+    transition: all 1s;
+
+    .message,
+    .error {
+        padding: 15px 40px;
+        border-radius: 10px;
+        width: fit-content;
+        margin: auto;
+        font-size: 0.8rem;
+    }
+
+    .error {
+        background-color: rgba(255, 0, 0, 0.1);
+        color: red;
+        border: 1px solid rgba(255, 0, 0, 0.3);
+    }
+
+    .message {
+        background-color: rgba(0, 128, 0, 0.1);
+        color: green;
+        border: 1px solid rgba(0, 128, 0, 0.3);
+    }
+}
+
+/*::-webkit-scrollbar {
     width: 10px;
 }
 
-/* Track */
+ Track 
 ::-webkit-scrollbar-track {
     background-color: $secondry-background;
 }
 
-/* Handle */
+Handle
 ::-webkit-scrollbar-thumb {
     background: $gray-level2;
 }
 
-/* Handle on hover */
+Handle on hover
 ::-webkit-scrollbar-thumb:hover {
     background: $primary-color;
-}
+}*/
