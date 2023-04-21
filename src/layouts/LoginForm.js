@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Message from "@/components/Message";
 
 const LoginForm = ({ setForm }) => {
-    const [loginData, setLoginData] = useState({ email: '', password: '' })
+    const [data, setData] = useState({ email: '', password: '' })
     const [loginError, setLoginError] = useState({ email: false, password: false })
 
     const [messageState, setMessageState] = useState(false)
@@ -16,30 +16,39 @@ const LoginForm = ({ setForm }) => {
     const apiResponseError = 'No response from server, Try Again Later'
 
     const login = async () => {
+        if (data.email === '' || data.password === '') {
+            setLoginError({
+                email: data.email === '' ? true : false,
+                password: data.password === '' ? true : false
+            })
+
+            return messageHandle('Empty Fields', 'error')
+        }
+
         let response = await signIn('credentials', {
             redirect: false,
-            email: loginData.email,
-            password: loginData.password,
+            email: data.email,
+            password: data.password,
             callbackUrl: '/'
         })
 
-        if (response.status === 500) messageHandle('server', 'error')
-        if (response.status === 401) messageHandle('field', 'error')
+        if (response.status === 500) messageHandle(apiResponseError, 'error')
+        if (response.status === 401) messageHandle(authError, 'error')
         if (response.ok) router.push('/')
     }
 
     const messageHandle = (
-        source, //could be a field or server
+        text, //message Text
         type //error of message
     ) => {
-        if (source === 'server') {
-            setMessage({ message: apiResponseError, type: type })
-        } else {
-            setLoginError({ email: true, password: true })
-            setMessage({ message: authError, type: type })
-        }
-
+        setMessage({ message: text, type: type })
         setMessageState(true)
+    }
+
+    const notRegestered = () => {
+        setForm('regester')
+        setLoginError({ email: false, password: false })
+        setData({ email: '', password: '' })
     }
 
     return (
@@ -49,20 +58,20 @@ const LoginForm = ({ setForm }) => {
             <div className={style.signin}>
                 <div className={style.header}>
                     <h1>Sign in</h1>
-                    <div className={style.navigate} onClick={() => setForm('regester')}>Don't have An Acount?</div>
+                    <div className={style.navigate} onClick={() => notRegestered()}>Don't have An Acount?</div>
                 </div>
                 <input
                     type='text'
                     placeholder="Email"
-                    onChange={(event) => { setLoginData({ ...loginData, email: event.target.value }); setLoginError({ email: false, password: false }) }}
-                    value={loginData.email}
+                    onChange={(event) => { setData({ ...data, email: event.target.value }); setLoginError({ email: false, password: false }) }}
+                    value={data.email}
                     style={{ outline: loginError.email ? '2px solid red' : 'none' }}
                 />
                 <input
                     type='password'
                     placeholder="Password"
-                    onChange={(event) => { setLoginData({ ...loginData, password: event.target.value }); setLoginError({ email: false, password: false }) }}
-                    value={loginData.password}
+                    onChange={(event) => { setData({ ...data, password: event.target.value }); setLoginError({ email: false, password: false }) }}
+                    value={data.password}
                     style={{ outline: loginError.password ? '2px solid red' : 'none' }}
                 />
                 <button onClick={login}>Signin</button>

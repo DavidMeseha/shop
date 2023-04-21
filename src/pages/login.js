@@ -3,6 +3,8 @@ import Head from "next/head";
 import LoginForm from "@/layouts/LoginForm";
 import RegesterForm from "@/layouts/RegesterForm";
 import { useState } from "react";
+import { getServerSession } from 'next-auth';
+import { authOptions } from './api/auth/[...nextauth]';
 
 const Login = () => {
     const [state, setState] = useState('login')
@@ -28,3 +30,20 @@ const Login = () => {
     )
 };
 export default Login;
+
+export async function getServerSideProps(ctx) {
+    const session = await getServerSession(ctx.req, ctx.res, authOptions)
+
+    if (session) {
+        return {
+            redirect: {
+                destination: '/',
+                permanent: false,
+            },
+        }
+    }
+
+    return {
+        props: { session }
+    }
+}

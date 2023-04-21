@@ -3,11 +3,10 @@ const hChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const nChars = '0123456789'
 const sChars = '-_&%$#@!'
 
-const english = /^[A-Za-z]*$/ //regular Exprission
+const english = /^[A-Za-z\s]*$/ //regular Exprission
 const numbers = /^[0-9]*$/  //regular Exprission
 
 export const passwordValidation = (password) => {
-    //console.log(password)
     let array = lChars.split('')
     let hasLChar = false
     for (let i = 0; i < array.length; i++) {

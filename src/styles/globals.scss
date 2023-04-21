@@ -29,7 +29,7 @@ input {
     background: $primary-background;
     padding: 7px 40px 7px 10px;
 
-    &:focus{
+    &:focus {
         outline: 2px solid gray;
     }
 }
@@ -160,6 +160,7 @@ button {
 
 .message-position {
     position: fixed;
+    left: 0;
     width: 100%;
     top: 40px;
     opacity: 1;
@@ -185,6 +186,20 @@ button {
         color: green;
         border: 1px solid rgba(0, 128, 0, 0.3);
     }
+
+    .action {
+        font-weight: 600;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.map {
+    width: 900px;
+    height: 900px;
 }
 
 /*::-webkit-scrollbar {

@@ -10,11 +10,9 @@ import { useSession } from "next-auth/react";
 const NavBar = () => {
     const router = useRouter()
     if (router.pathname === '/login') return
+    if (router.pathname === '/map') return
 
-    //const { data: session, status } = useSession()
-    //console.log(status)
-    //console.log(session)
-    let session = true
+    const { data: session, status } = useSession()
 
     const { setState } = useFilterState()
     const [menuState, setMenuState] = useState(false)
@@ -32,8 +30,9 @@ const NavBar = () => {
                         <SearchBar />
                     </div>
                     <div className={style['user-menu']}>
+                        <div style={{ width: 10, height: 10, background: 'red', position: 'absolute', top: 0, left: 20, borderRadius: 99 }}></div>
                         <div onClick={() => session ? setMenuState(!menuState) : router.push('/login')} className={style.profile}></div>
-                        <div onClick={() => session ? setMenuState(!menuState) : router.push('/login')} className={style.user}><h3>{session ? 'User Name' : 'Sign In'}</h3></div>
+                        <div onClick={() => session ? setMenuState(!menuState) : router.push('/login')} className={style.user}><h3>{session ? session.user.name.split(' ')[0] : 'Sign In'}</h3></div>
                         <div onClick={() => session ? setMenuState(!menuState) : router.push('/login')} className="arrow-down"></div>
                         {menuState && <div className={style.menu}><UserMenu /></div>}
                     </div>

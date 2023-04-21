@@ -5,11 +5,11 @@ import '@/styles/globals.scss'
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
   return (
-    <SessionProvider session={session}>
-      <FilterStateProvider>
+    <FilterStateProvider>
+      <SessionProvider session={session}>
         <nav><NavBar /></nav>
         <Component {...pageProps} />
-      </FilterStateProvider>
-    </SessionProvider>
+      </SessionProvider>
+    </FilterStateProvider>
   )
 }

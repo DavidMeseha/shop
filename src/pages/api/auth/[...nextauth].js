@@ -22,12 +22,35 @@ export const authOptions = {
 
                 let decryptedPass = AES.decrypt(user.password, process.env.CRYPTO_KEY).toString(CryptoJS.enc.Utf8)
 
-                if (decryptedPass !== password) return null
+                if (decryptedPass !== password) throw new Error('wrong Password')
 
                 return user
             }
         })
     ],
+
+    session: {
+        strategy: 'jwt',
+        maxAge: 30 * 24 * 60 * 60,
+    },
+
+    jwt: {
+        maxAge: 60 * 60 * 24 * 30,
+    },
+
+    callbacks: {
+        async session({ session, token, user }) {
+            delete session.user.image
+
+            console.log(session)
+
+            return session
+        },
+
+        async jwt({ token, account }) {
+            return token
+        },
+    }
 
 }
 export default NextAuth(authOptions)

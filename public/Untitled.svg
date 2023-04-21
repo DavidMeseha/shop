@@ -1,0 +1,5 @@
+<svg id="ewlTYLpiQkB1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300" shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+<style><![CDATA[
+#ewlTYLpiQkB3_to {animation: ewlTYLpiQkB3_to__to 3000ms linear infinite normal forwards}@keyframes ewlTYLpiQkB3_to__to { 0% {offset-distance: 0%} 25% {offset-distance: 25%} 50% {offset-distance: 50%} 75% {offset-distance: 75%} 100% {offset-distance: 100%}}
+]]></style>
+<path d="M56.339713,80.382775L229.30622,210.287081L243.660286,69.617225L56.339713,80.382775Z" transform="translate(.000003 0)" fill="none" stroke="#3f5787" stroke-width="0.6"/><g id="ewlTYLpiQkB3_to" style="offset-path:path('M80.023923,137.799043C80.023923,86.66646,119.868438,45.215311,169.019139,45.215311C218.16984,45.215311,258.014355,86.66646,258.014355,137.799043C258.014355,188.931626,218.16984,230.382775,169.019139,230.382775C119.868438,230.382775,80.023923,188.931626,80.023923,137.799043');offset-rotate:0deg"><ellipse rx="30" ry="30" transform="scale(3.684203,1) translate(0,0)" fill="#d2dbed" stroke-width="0"/></g></svg>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const Message = ({ message, type, state, setState }) => {
+const Message = ({ message, type, state, setState, action }) => {
 
     const [exit, setExit] = useState(false)
 
@@ -14,7 +14,7 @@ const Message = ({ message, type, state, setState }) => {
                 setState(false)
                 setExit(false)
             }, 1000)
-        }, 3500)
+        }, 4500)
 
     }, [state])
 
@@ -22,7 +22,7 @@ const Message = ({ message, type, state, setState }) => {
         <>
             {state && <div className='message-position' style={{ opacity: exit ? 0 : 1 }}>
                 <div className={`${type === 'error' ? 'error' : 'message'} `} >
-                    {message}
+                    <p>{message}, <span onClick={action.fn} className="action">{action.name}</span>.</p>
                 </div >
             </div>}
         </>
