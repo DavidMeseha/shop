@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
