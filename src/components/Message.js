@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 const Message = ({ message, type, state, setState, action }) => {
-
     const [exit, setExit] = useState(false)
 
     useEffect(() => {

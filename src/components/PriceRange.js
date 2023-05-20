@@ -5,7 +5,7 @@ import useFilter from "@/hooks/useFilter";
 const PriceRange = () => {
     const { setPrice } = useFilter()
     const [input, setInput] = useState({ min: 0, max: 200_000 })
-    const [containerState, setContainerState] = useState(false)
+    const [containerState, setContainerState] = useState(true)
 
     return (
         <div className={style.asset} >
@@ -24,4 +24,5 @@ const PriceRange = () => {
         </div>
     )
 };
+
 export default PriceRange;

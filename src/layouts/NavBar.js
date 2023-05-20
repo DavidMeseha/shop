@@ -30,10 +30,10 @@ const NavBar = () => {
                         <SearchBar />
                     </div>
                     <div className={style['user-menu']}>
-                        <div style={{ width: 10, height: 10, background: 'red', position: 'absolute', top: 0, left: 20, borderRadius: 99 }}></div>
-                        <div onClick={() => session ? setMenuState(!menuState) : router.push('/login')} className={style.profile}></div>
-                        <div onClick={() => session ? setMenuState(!menuState) : router.push('/login')} className={style.user}><h3>{session ? session.user.name.split(' ')[0] : 'Sign In'}</h3></div>
-                        <div onClick={() => session ? setMenuState(!menuState) : router.push('/login')} className="arrow-down"></div>
+                        {/*<div style={{ width: 10, height: 10, background: 'red', position: 'absolute', top: 0, left: 20, borderRadius: 99 }}></div>*/}
+                        <div /*onClick={() => session ? setMenuState(!menuState) : router.push('/login')} */className={style.profile}></div>
+                        <div /*onClick={() => session ? setMenuState(!menuState) : router.push('/login')}*/ className={style.user}><h3>{session ? session.user.name.split(' ')[0] : 'Sign In'}</h3></div>
+                        <div /*onClick={() => session ? setMenuState(!menuState) : router.push('/login')}*/ className="arrow-down"></div>
                         {menuState && <div className={style.menu}><UserMenu /></div>}
                     </div>
                 </div>
