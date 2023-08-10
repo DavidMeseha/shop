@@ -27,7 +27,7 @@ const NavBar = () => {
                 <div className={style.logo}><h1>LOGO</h1></div>
                 <div className={style.content}>
                     <div className={style.search}>
-                        <SearchBar onChange={(e) => setSearch(e.target.value)} value={search} />
+                        <SearchBar onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Find Laptop' />
                     </div>
                     <div className={style['user-menu']}>
                         {/*<div style={{ width: 10, height: 10, background: 'red', position: 'absolute', top: 0, left: 20, borderRadius: 99 }}></div>*/}
