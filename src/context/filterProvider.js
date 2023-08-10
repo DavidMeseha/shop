@@ -125,7 +125,7 @@ export const FilterStateProvider = ({ children }) => {
 
         if (search.length !== 0) {
             temp = filtered.filter(laptop => {
-                return (laptop.model.includes(search))
+                return (laptop.model.toLowerCase().includes(search.toLowerCase()))
             })
 
             filtered = temp.slice()
