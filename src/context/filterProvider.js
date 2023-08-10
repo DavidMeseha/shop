@@ -11,6 +11,7 @@ export const FilterStateProvider = ({ children }) => {
     const [OS, setOS] = useState([])
     const [CPU, setCPU] = useState([])
     const [GPU, setGPU] = useState([])
+    const [search, setSearch] = useState('')
     const [displayType, setDisplay] = useState('containerGrid') //[containerGrid, containerList]
     const [sort, setSort] = useState('none') //[none, ascending, descending]
 
@@ -122,6 +123,14 @@ export const FilterStateProvider = ({ children }) => {
             filtered = temp.slice()
         }
 
+        if (search.length !== 0) {
+            temp = filtered.filter(laptop => {
+                return (laptop.model.includes(search))
+            })
+
+            filtered = temp.slice()
+        }
+
         if (sort !== 'none') return sortData(filtered)
 
         return filtered
@@ -152,6 +161,8 @@ export const FilterStateProvider = ({ children }) => {
             OS, setOS,
             CPU, setCPU,
             GPU, setGPU,
+
+            search, setSearch
         }}>
             {children}
         </FilterContext.Provider >

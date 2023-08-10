@@ -1,6 +1,6 @@
 import { Search } from "@/components/Icons";
 
-const SearchBar = ({placeholder}) => {
+const SearchBar = (props) => {
     const icon = {
         width: 18,
         height: 18,
@@ -10,7 +10,7 @@ const SearchBar = ({placeholder}) => {
 
     return (
         <>
-            <input type='text' placeholder={placeholder} />
+            <input type='text' {...props} />
             <div style={icon}><Search /></div>
         </>
     )

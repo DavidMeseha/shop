@@ -14,7 +14,7 @@ const NavBar = () => {
 
     const { data: session, status } = useSession()
 
-    const { setState } = useFilterState()
+    const { setState, search, setSearch } = useFilterState()
     const [menuState, setMenuState] = useState(false)
 
     return (
@@ -27,11 +27,11 @@ const NavBar = () => {
                 <div className={style.logo}><h1>LOGO</h1></div>
                 <div className={style.content}>
                     <div className={style.search}>
-                        <SearchBar />
+                        <SearchBar onChange={(e) => setSearch(e.target.value)} value={search} />
                     </div>
                     <div className={style['user-menu']}>
                         {/*<div style={{ width: 10, height: 10, background: 'red', position: 'absolute', top: 0, left: 20, borderRadius: 99 }}></div>*/}
-                        <div /*onClick={() => session ? setMenuState(!menuState) : router.push('/login')} */className={style.profile}></div>
+                        <div /*onClick={() => session ? setMenuState(!menuState) : router.push('/login')} */ className={style.profile}></div>
                         <div /*onClick={() => session ? setMenuState(!menuState) : router.push('/login')}*/ className={style.user}><h3>{session ? session.user.name.split(' ')[0] : 'Sign In'}</h3></div>
                         <div /*onClick={() => session ? setMenuState(!menuState) : router.push('/login')}*/ className="arrow-down"></div>
                         {menuState && <div className={style.menu}><UserMenu /></div>}
