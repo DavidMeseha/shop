@@ -56,81 +56,66 @@ export const FilterStateProvider = ({ children }) => {
         return sorted
     }
 
-    const filterData = (laptops) => {
-        let filtered = laptops.slice()
-        let temp = []
-
-        //price filter....
-        temp = filtered.filter(laptop => {
+    const filterPriceRange = (laptops) => {
+        return laptops.filter(laptop => {
             return (laptop.price > price.min && laptop.price < price.max)
         })
+    }
 
-        if (temp.length !== 0) {
-            filtered = temp.slice()
-        }
+    const filterTypes = (laptops) => {
+        return laptops.filter(laptop => {
+            return (type.includes(laptop.type))
+        })
+    }
 
-        //type filter....
-        if (type.length !== 0) {
-            temp = filtered.filter(laptop => {
-                return (type.includes(laptop.type))
-            })
+    const filterBrands = (laptops) => {
+        return laptops.filter(laptop => {
+            return (brand.includes(laptop.brand))
+        })
+    }
 
-            filtered = temp.slice()
-        }
+    const filterRamSize = (laptops) => {
+        return laptops.filter(laptop => {
+            return (ram.includes(laptop.specs.ram.size))
+        })
+    }
 
-        //brand filter....
-        if (brand.length !== 0) {
-            temp = filtered.filter(laptop => {
-                return (brand.includes(laptop.brand))
-            })
+    const filterOS = (laptops) => {
+        return laptops.filter(laptop => {
+            return (OS.includes(laptop.specs.OS))
+        })
+    }
 
-            filtered = temp.slice()
-        }
+    const filterCPU = (laptops) => {
+        return laptops.filter(laptop => {
+            return (CPU.includes(laptop.specs.CPU.brand + ' ' + laptop.specs.CPU.type))
+        })
+    }
 
-        //Ram-Size filter....
-        if (ram.length !== 0) {
-            temp = filtered.filter(laptop => {
-                return (ram.includes(laptop.specs.ram.size))
-            })
+    const filterGPU = (laptops) => {
+        return laptops.filter(laptop => {
+            return (GPU.includes(laptop.specs.GPU.processor))
+        })
+    }
 
-            filtered = temp.slice()
-        }
+    const find = (laptops) => {
+        return laptops.filter(laptop => {
+            let name = laptop.brand.toLowerCase() + ' ' + laptop.model.toLowerCase()
+            return (name.includes(search))
+        })
+    }
 
-        //OS filter....
-        if (OS.length !== 0) {
-            temp = filtered.filter(laptop => {
-                return (OS.includes(laptop.specs.OS))
-            })
+    const filterData = (laptops) => {
+        let filtered = laptops.slice()
 
-            filtered = temp.slice()
-        }
-
-        //CPU filter....
-        if (CPU.length !== 0) {
-            temp = filtered.filter(laptop => {
-                return (CPU.includes(laptop.specs.CPU.brand + ' ' + laptop.specs.CPU.type))
-            })
-
-            filtered = temp.slice()
-        }
-
-        //GPU filter....
-        if (GPU.length !== 0) {
-            temp = filtered.filter(laptop => {
-                return (GPU.includes(laptop.specs.GPU.processor))
-            })
-
-            filtered = temp.slice()
-        }
-
-        if (search.length !== 0) {
-            temp = filtered.filter(laptop => {
-                let name = laptop.brand.toLowerCase() + ' ' + laptop.model.toLowerCase()
-                return (name.includes(search))
-            })
-
-            filtered = temp.slice()
-        }
+        filtered = filterPriceRange(filtered)
+        if (type.length !== 0) filtered = filterTypes(filtered).slice()
+        if (brand.length !== 0) filtered = filterBrands(filtered).slice()
+        if (ram.length !== 0) filtered = filterRamSize(filtered).slice()
+        if (OS.length !== 0) filtered = filterOS(filtered).slice()
+        if (CPU.length !== 0) filtered = filterCPU(filtered).slice()
+        if (GPU.length !== 0) filtered = filterGPU(filtered).slice()
+        if (search.length !== 0) filtered = find(filtered).slice()
 
         if (sort !== 'none') return sortData(filtered)
 
