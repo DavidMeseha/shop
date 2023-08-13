@@ -24,7 +24,7 @@ const NavBar = () => {
                 <div className={style.title}><h3>Filters</h3></div>
             </div>
             <div className={style.mainNav}>
-                <div className={style.logo}><h1>LOGO</h1></div>
+                <div className={style.logo}><h1>LOGO👋</h1></div>
                 <div className={style.content}>
                     <div className={style.search}>
                         <SearchBar onChange={(e) => setSearch(e.target.value)} value={search} placeholder='Find Laptop' />

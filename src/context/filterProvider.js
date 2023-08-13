@@ -4,7 +4,7 @@ const FilterContext = createContext({})
 
 export const FilterStateProvider = ({ children }) => {
     const [state, setState] = useState(true)
-    const [price, setPrice] = useState({ max: 0, min: 200_000 })
+    const [price, setPrice] = useState({ min: 0, max: 200_000 })
     const [type, setType] = useState([])
     const [ram, setRam] = useState([])
     const [brand, setBrand] = useState([])
@@ -58,7 +58,7 @@ export const FilterStateProvider = ({ children }) => {
 
     const filterPriceRange = (laptops) => {
         return laptops.filter(laptop => {
-            return (laptop.price > price.min && laptop.price < price.max)
+            return (laptop.price >= price.min && laptop.price <= price.max)
         })
     }
 
